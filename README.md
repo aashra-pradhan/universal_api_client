@@ -81,7 +81,7 @@ In `universal_client.py`, pagination loops currently include test break conditio
 - PAGE stops when `page > 3`
 - HAS_MORE stops at `iteration >= 3`
 
-These are useful for testing but will limit full data retrieval in production.
+These are useful for testing but will limit full data retrieval in production. So, these conditions can be removed when utilizing this code in production.
 
 ## Run Example
 
