@@ -73,10 +73,9 @@ class ClientCredentialsAuth(BaseAuth):
         response = requests.post(
             self.token_url,
             data={
-                "grant_type": "client_credentials",
-                "client_id": self.client_id,
-                "client_secret": self.client_secret,
+                "grant_type": "client_credentials"
             },
+            auth=(self.client_id, self.client_secret)
         )
 
         response.raise_for_status()
