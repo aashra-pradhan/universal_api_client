@@ -10,7 +10,8 @@ A reusable Python API client that supports:
 ## Project Structure
 
 - `universal_client.py` → client, auth classes, pagination strategies
-- `main.py` → example usage with `.env`
+- `main_api_key.py` → example using API key authentication
+- `main_client_creds.py` → example using OAuth2 client credentials
 - `.env` / `.env.sample` → runtime configuration
 
 ## Requirements
@@ -27,11 +28,20 @@ pip install requests python-dotenv
 
 ## Environment Variables
 
-Based on current `main.py`, the following keys are expected in `.env`:
+For **API key authentication** (used in `main_api_key.py`):
 
 ```env
 base_url=https://api.example.com
 api_key=YOUR_API_KEY
+```
+
+For **OAuth2 client credentials** (used in `main_client_creds.py`):
+
+```env
+client_base_url=https://api.example.com
+token_url=https://auth.example.com/oauth/token
+client_id=YOUR_CLIENT_ID
+client_secret=YOUR_CLIENT_SECRET
 ```
 
 ## Authentication Modes
@@ -85,6 +95,12 @@ These are useful for testing but will limit full data retrieval in production. S
 
 ## Run Example
 
+For API key authentication:
 ```bash
-python main.py
+python main_api_key.py
+```
+
+For OAuth2 client credentials:
+```bash
+python main_client_creds.py
 ```
