@@ -1,18 +1,20 @@
+from abc import ABC
+
 import requests
 import time
 
 # ==================================
-# Pagination Strategy
+# Pagination Strategy : Do it using enum
 # ==================================
 class PaginationStrategy:
     OFFSET = "offset"           # offset + limit
     PAGE = "page"               # page + per_page
-    HAS_MORE = "has_more"       # boolean flag
+    HAS_MORE = "has_more"       # boolean flag 
 
 # ==================================
-# Base Authentication
+# Base Authentication : interface (ABC)
 # ==================================
-class BaseAuth:
+class BaseAuth(ABC):
     def get_auth_data(self):
         """
         Returns dictionary:
@@ -193,6 +195,7 @@ class UniversalAPIClient:
 
     def get_all(self, endpoint, params=None, headers=None,
                 strategy=PaginationStrategy.OFFSET,
+                # method call garda strategy parameter napathaye, default OFFSET strategy le nai kaam garnecha, but if user explicitly strategy pathauncha bhane tyo strategy le kaam garnecha
                 limit_field="limit", offset_field="offset",
                 page_field="page", per_page_field="per_page",
                 has_more_field="has_more"):

@@ -34,6 +34,6 @@ client = UniversalAPIClient(
 # ---------------------------------
 # Call API
 # ---------------------------------
-response = client.get_all("/orders", params={"max": 5}, limit_field="max")
+response = client.get_all("/orders", params={"max": 5}, limit_field="max", strategy="offset")
 # if no params, then you can opt that out hai and just send /weather or other endpoint, whatever it is, depending on your API
 print(response)
